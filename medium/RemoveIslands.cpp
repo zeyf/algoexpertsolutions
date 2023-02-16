@@ -1,3 +1,4 @@
+// If you know, you know
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -82,12 +83,11 @@ vector<vector<int>> removeIslands(vector<vector<int>> matrix) {
 
   // Iterate over the entire board again and 1-out all 2'd coordinates (preserve edge-connected islands)
   // Also 0-out all non-2'd locations, removing non-edge islands from the matrix
-  for (int x = 0; x < n; ++x) {
+  // 2 --> 1, 1 --> 0, so decrement all matrix[x][y] > 0
+for (int x = 0; x < n; ++x) {
     for (int y = 0; y < m; ++y) {
-      if (matrix[x][y] == 2)
-        matrix[x][y] = 1;
-      else if (matrix[x][y] == 1)
-        matrix[x][y] = 0;
+      if (matrix[x][y] > 0)
+        matrix[x][y]--;
     }
   }
 
